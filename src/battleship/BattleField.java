@@ -18,5 +18,11 @@ public class BattleField {
     public void placeShip(Ship ship, String orientation, Integer x, Integer y){
         String shipName = ship.getName();
         Integer shipWidht = ship.getWidth();
+
+        if(orientation.equals("NA")){
+            for(Integer i=y; i<shipWidht+y; i++){
+                this.field[i][x] = shipName;
+            }
+        }
     }
 }
