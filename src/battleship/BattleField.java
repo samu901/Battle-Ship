@@ -19,10 +19,18 @@ public class BattleField {
         String shipName = ship.getName();
         Integer shipWidht = ship.getWidth();
 
-        if(orientation.equals("NA")){
-            for(Integer i=y; i<shipWidht+y; i++){
-                this.field[i][x] = shipName;
+        if(shipWidht<this.field.length && shipWidht<this.field[0].length){
+            if(orientation.equals("NS")){
+                if(y+shipWidht < this.field.length){
+                    for(Integer i=y; i<shipWidht+y; i++){
+                        this.field[i][x] = shipName;
+                    }
+                }else{
+                    System.out.println("The ship is out of bound!");
+                }
             }
+        }else{
+            System.out.println("The ship \""+shipName+"\" is too large for the battle field!");
         }
     }
 }
